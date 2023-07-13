@@ -8,7 +8,7 @@ export default async function Home() {
   const posts: Post[] = await getPosts();
 
   return (
-    <div className="mx-10">
+    <div className="mt-4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-4 gap-y-2 mx-2 md:mx-4 lg:mx-[120px]">
       {posts &&
         // loop through the posts and pass each post as a prop to the PostCard component
         posts.map((post: Post) => {

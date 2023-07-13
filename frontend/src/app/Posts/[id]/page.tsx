@@ -1,4 +1,7 @@
 import { getPostById } from "@/app/api/httpService";
+import Link from "next/link";
+import { AiOutlineArrowLeft } from "react-icons/ai";
+import { HiPencilAlt } from "react-icons/hi";
 
 interface Props {
   params: {
@@ -6,7 +9,7 @@ interface Props {
   };
 }
 
-const page = async ({ params }: Props) => {
+export default async function PostPage({ params }: Props) {
   const post = await getPostById(params.id);
 
   const {
@@ -24,13 +27,21 @@ const page = async ({ params }: Props) => {
   return (
     <div className="min-h-screen bg-gray-900 text-white py-12 px-4 md:px-12">
       <div className="max-w-3xl mx-auto rounded-xl bg-gray-800 p-8 space-y-8 shadow-lg">
-        <h1 className="text-3xl sm:text-4xl lg:text-5xl leading-none font-extrabold text-white tracking-tight mb-4">
-          {title}
-        </h1>
+        <Link href="/">
+          <AiOutlineArrowLeft className="hover:text-gray-400 duration-200" />
+        </Link>
+
+        <div className="flex justify-between items-center">
+          <h1 className="text-3xl sm:text-4xl lg:text-5xl leading-none font-extrabold text-white tracking-tight mb-4">
+            {title}
+          </h1>
+
+          <Link href={`/posts/edit/${post.id}`}>
+            <HiPencilAlt className="text-gray-300 hover:text-gray-500 cursor-pointer w-6 h-6" />
+          </Link>
+        </div>
         <p className="text-lg sm:text-md font-light text-white">{body}</p>
       </div>
     </div>
   );
-};
-
-export default page;
+}

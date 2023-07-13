@@ -7,11 +7,11 @@ export interface Post {
 
 // the PostAttributes is composed of:
 export interface PostAttributes {
-  slug: string;
+  slug?: string;
   author: string;
   title: string;
   body: string;
-  createdAt: string;
-  updatedAt: string;
-  publishedAt: string;
+  createdAt?: string;
+  updatedAt?: string;
+  publishedAt?: string;
 }

@@ -26,7 +26,7 @@ export default function Navbar() {
                   Profile
                 </Link>
                 <Link
-                  href="/create"
+                  href="/posts/create"
                   className="px-3 py-2 rounded-md text-sm font-medium text-white hover:bg-gray-700 hover:text-green-500 duration-200"
                 >
                   <AiOutlinePlusCircle className="h-5 w-5 " />
@@ -65,7 +65,7 @@ export default function Navbar() {
               Profile
             </Link>
             <Link
-              href="/create"
+              href="/posts/create"
               className="block px-3 py-2 rounded-md text-base font-medium text-white hover:bg-gray-700"
             >
               <AiOutlinePlusCircle className="h-5 w-5" />
