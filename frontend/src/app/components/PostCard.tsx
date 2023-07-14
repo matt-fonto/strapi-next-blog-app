@@ -6,7 +6,7 @@ import { useState } from "react";
 import DeletePostModal from "./DeletePostModal";
 import { deletePost } from "../api/httpService";
 
-interface PostCardProps {
+export interface PostCardProps {
   post: Post;
 }
 
@@ -48,8 +48,18 @@ function PostCard({ post }: PostCardProps) {
           />
         </div>
       </div>
-      <div className="text-gray-400 text-sm">Written by: {author}</div>
-      <p>Categories</p>
+      <p>{body && body.length > 100 ? `${body.substring(0, 100)}...` : body}</p>
+
+      <Link href={`/posts/${post.id}`}>
+        <button
+          type="submit"
+          className="mt-4 px-4 py-2 rounded-md text-sm font-medium text-white bg-indigo-700 hover:bg-indigo-800"
+        >
+          Read more
+        </button>
+      </Link>
+
+      <small>Categories Tag</small>
 
       <DeletePostModal
         isOpen={isModalOpen}
