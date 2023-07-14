@@ -1,23 +1,52 @@
-import { Meta, StoryObj } from "@storybook/react";
-import PostCard, { PostCardProps } from "./PostCard";
+import { PostCard } from "./PostCard";
 
 export default {
   title: "Components/PostCard",
   component: PostCard,
-  args: {
-    post: {
-      id: 1,
-      attributes: {
-        author: "John Doe",
-        title: "My first post",
-        body: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.",
+
+  parameters: {
+    docs: {
+      description: {
+        component: "Card to display post summary and actions",
       },
     },
   },
-} as Meta<PostCardProps>;
 
-const Template: StoryObj<PostCardProps> = (args) => <PostCard {...args} />;
+  argTypes: {
+    post: {
+      description: "The post object to display",
+    },
+  },
+};
+
+const Template = (args: any) => <PostCard {...args} />;
 
 export const Default = Template.bind({});
+Default.args = {
+  post: {
+    id: 1,
+    attributes: {
+      title: "My First Post",
+      body: "This is the body of my first post",
+      author: "John Doe",
+      createdAt: "2021-01-01T00:00:00.000Z",
+      updatedAt: "2021-01-02T00:00:00.000Z",
+      publishedAt: "2021-01-01T00:00:00.000Z",
+    },
+  },
+};
 
-// 24:00
+export const ExampleII = Template.bind({});
+ExampleII.args = {
+  post: {
+    id: 2,
+    attributes: {
+      title: "Hi!",
+      body: "This is the body of my first post",
+      author: "John Doe",
+      createdAt: "2021-01-01T00:00:00.000Z",
+      updatedAt: "2021-01-02T00:00:00.000Z",
+      publishedAt: "2021-01-01T00:00:00.000Z",
+    },
+  },
+};

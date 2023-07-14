@@ -1,5 +1,5 @@
 import Image from "next/image";
-import PostCard from "./components/PostCard";
+import { PostCard } from "./components/PostCard";
 import { Post } from "./types/Post";
 import { getPosts } from "./api/httpService";
 

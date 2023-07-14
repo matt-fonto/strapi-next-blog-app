@@ -20,6 +20,10 @@ const CreatePostForm = () => {
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
 
+    if (!title || !author || !body) {
+      return;
+    }
+
     const newPost: PostAttributes = {
       title,
       author,

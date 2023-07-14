@@ -3,10 +3,10 @@ import Link from "next/link";
 import { Post } from "../types/Post";
 import { HiPencilAlt, HiTrash } from "react-icons/hi"; // import edit and trash icons
 import { useState } from "react";
-import DeletePostModal from "./DeletePostModal";
+import { DeletePostModal } from "./DeletePostModal";
 import { deletePost } from "../api/httpService";
 
-export interface PostCardProps {
+interface PostCardProps {
   post: Post;
 }
 
@@ -48,18 +48,8 @@ function PostCard({ post }: PostCardProps) {
           />
         </div>
       </div>
-      <p>{body && body.length > 100 ? `${body.substring(0, 100)}...` : body}</p>
-
-      <Link href={`/posts/${post.id}`}>
-        <button
-          type="submit"
-          className="mt-4 px-4 py-2 rounded-md text-sm font-medium text-white bg-indigo-700 hover:bg-indigo-800"
-        >
-          Read more
-        </button>
-      </Link>
-
-      <small>Categories Tag</small>
+      <div className="text-gray-400 text-sm">Written by: {author}</div>
+      <p>Categories</p>
 
       <DeletePostModal
         isOpen={isModalOpen}
@@ -70,4 +60,4 @@ function PostCard({ post }: PostCardProps) {
   );
 }
 
-export default PostCard;
+export { PostCard };

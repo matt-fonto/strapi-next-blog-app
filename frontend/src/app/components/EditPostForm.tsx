@@ -11,6 +11,8 @@ interface EditPostFormProps {
 }
 
 const EditPostForm = ({ post }: EditPostFormProps) => {
+  console.log(EditPostForm);
+
   const router = useRouter();
 
   const [title, setTitle] = useState<string>(post.attributes.title);
@@ -125,4 +127,4 @@ const EditPostForm = ({ post }: EditPostFormProps) => {
   );
 };
 
-export default EditPostForm;
+export { EditPostForm };

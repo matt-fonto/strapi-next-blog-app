@@ -1,5 +1,5 @@
 import { getPostById } from "@/app/api/httpService";
-import EditPostForm from "@/app/components/EditPostForm";
+import { EditPostForm } from "@/app/components/EditPostForm";
 import React from "react";
 
 interface Props {
