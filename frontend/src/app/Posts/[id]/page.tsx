@@ -32,15 +32,17 @@ export default async function PostPage({ params }: Props) {
         </Link>
 
         <div className="flex justify-between items-center">
-          <h1 className="text-3xl sm:text-4xl lg:text-5xl leading-none font-extrabold text-white tracking-tight mb-4">
-            {title}
-          </h1>
+          <h1 className="heading1">{title}</h1>
 
           <Link href={`/posts/edit/${post.id}`}>
             <HiPencilAlt className="text-gray-300 hover:text-gray-500 cursor-pointer w-6 h-6" />
           </Link>
         </div>
         <p className="text-lg sm:text-md font-light text-white">{body}</p>
+
+        <div>
+          <p className="small-text">Written by {author}</p>
+        </div>
       </div>
     </div>
   );

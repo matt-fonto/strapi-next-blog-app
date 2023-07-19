@@ -5,6 +5,7 @@ import { HiPencilAlt, HiTrash } from "react-icons/hi"; // import edit and trash 
 import { useState } from "react";
 import { DeletePostModal } from "./DeletePostModal";
 import { deletePost } from "../api/httpService";
+import Button from "./Button";
 
 interface PostCardProps {
   post: Post;
@@ -31,12 +32,10 @@ function PostCard({ post }: PostCardProps) {
   };
 
   return (
-    <div className="rounded-xl p-8 my-2 bg-gray-800 shadow-lg text-white space-y-4 transition-colors duration-200 hover:shadow-md">
+    <div className="post-card-container">
       <div className="flex justify-between items-start">
         <Link href={`/posts/${post.id}`}>
-          <h2 className="text-xl sm:text-2xl lg:text-3xl leading-none font-bold tracking-tight ">
-            {title}
-          </h2>
+          <h2 className="heading2">{title}</h2>
         </Link>
         <div className="flex space-x-4">
           <Link href={`/posts/edit/${post.id}`}>
@@ -48,8 +47,17 @@ function PostCard({ post }: PostCardProps) {
           />
         </div>
       </div>
-      <div className="text-gray-400 text-sm">Written by: {author}</div>
-      <p>Categories</p>
+
+      <div>
+        <Link href={`/posts/${post.id}`}>
+          <Button>Read More</Button>
+        </Link>
+      </div>
+
+      <div className="flex gap-4 items-center">
+        <div className="small-text">Written by: {author}</div>
+        <small>Categories</small>
+      </div>
 
       <DeletePostModal
         isOpen={isModalOpen}

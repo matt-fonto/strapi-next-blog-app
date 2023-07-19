@@ -5,6 +5,7 @@ import { Post, PostAttributes } from "../types/Post";
 import { AiOutlineArrowLeft } from "react-icons/ai";
 import useAutoResize from "../utils/useAutoResize";
 import { updatePost } from "../api/httpService";
+import Button from "./Button";
 
 interface EditPostFormProps {
   post: Post;
@@ -44,8 +45,8 @@ const EditPostForm = ({ post }: EditPostFormProps) => {
   }
 
   return (
-    <div className="min-h-screen bg-gray-900 text-white py-12 px-4 md:px-12">
-      <div className="max-w-3xl mx-auto rounded-xl bg-gray-800 p-8 space-y-8 shadow-lg">
+    <div className="form-container-parent">
+      <div className="form-container">
         <button onClick={() => router.push(`/posts/${post.id}`)}>
           <AiOutlineArrowLeft className="h-6 w-6 text-gray-500 hover:text-gray-400 duration-200" />
         </button>
@@ -58,10 +59,7 @@ const EditPostForm = ({ post }: EditPostFormProps) => {
         <form onSubmit={handleSubmit}>
           {/* Title */}
           <div>
-            <label
-              htmlFor="title"
-              className="text-sm font-medium text-gray-400"
-            >
+            <label htmlFor="title" className="label-forms">
               Title
             </label>
             <input
@@ -70,16 +68,13 @@ const EditPostForm = ({ post }: EditPostFormProps) => {
               name="title"
               value={title}
               onChange={(e) => setTitle(e.target.value)}
-              className="block w-full p-3 rounded bg-gray-700 mt-2 mb-4"
+              className="input-forms"
             />
           </div>
 
           {/* Author */}
           <div>
-            <label
-              htmlFor="author"
-              className="text-sm font-medium text-gray-400"
-            >
+            <label htmlFor="author" className="label-forms">
               Author
             </label>
             <input
@@ -88,13 +83,13 @@ const EditPostForm = ({ post }: EditPostFormProps) => {
               name="author"
               value={author}
               onChange={(e) => setAuthor(e.target.value)}
-              className="block w-full p-3 rounded bg-gray-700 mt-2 mb-4"
+              className="input-forms"
             />
           </div>
 
           {/* Body */}
           <div>
-            <label htmlFor="body" className="text-sm font-medium text-gray-400">
+            <label htmlFor="body" className="label-forms">
               Text
             </label>
             <textarea
@@ -108,18 +103,13 @@ const EditPostForm = ({ post }: EditPostFormProps) => {
                 target.style.height = `${target.scrollHeight}px`;
               }}
               onChange={(e) => setBody(e.target.value)}
-              className="block w-full p-3 rounded bg-gray-700 mt-2 mb-4 overflow-hidden transition-all"
+              className="input-forms overflow-hidden transition-all"
             />
           </div>
 
           {/* Button */}
           <div className="flex mx-auto justify-end">
-            <button
-              type="submit"
-              className="px-4 py-2 rounded-md text-sm font-medium text-white bg-indigo-700 hover:bg-indigo-800"
-            >
-              Save
-            </button>
+            <Button>Save</Button>
           </div>
         </form>
       </div>
